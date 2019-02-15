@@ -21,10 +21,10 @@
                 <form class="form-signin" action="/login" method="post">
                 <h2 class="form-signin-heading">登录账号</h2>
                 <label for="inputEmail" class="sr-only">用户名</label>
-                账号<input type="text" id="inputEmail" class="form-control" placeholder="请输入用户名" required autofocus name="uaccount" value="{{params.account}}">
+                账号:<input type="text" id="inputEmail" class="form-control" placeholder="请输入账号" required autofocus name="uaccount" value="{{params.account}}">
                 <span>{{params.err}}</span>
                 <label for="inputPassword" class="sr-only">密码</label>
-                密码<input type="password" id="inputPassword" class="form-control" placeholder="请输入6~10位密码" required name="upassword">
+                密码:<input type="password" id="inputPassword" class="form-control" placeholder="请输入6~20位密码" required name="upassword">
                 <div class="checkbox">
                   <label>
                     <input type="checkbox" value="remember-me" name="isSaved">

@@ -74,7 +74,7 @@ class Users(db.Model):
     name= db.Column(db.String(20),nullable=False)
     sex=db.Column(db.String(5),nullable=False)
     age= db.Column(db.String(20))
-    email= db.Column(db.String(20),nullable=False)
+    email= db.Column(db.String(40),nullable=False)
     phone= db.Column(db.String(20),nullable=False)
     imgurl=db.Column(db.String(50),nullable=False)
 
@@ -104,7 +104,7 @@ def login():
                     session['account']=account
                     return redirect(url)
                 else:
-                    resp = make_response(render_template('/login.html',params={}))
+                    resp = make_response(render_template('login.html',params={}))
                     resp.delete_cookie('account')
                     return resp
             else:
@@ -172,10 +172,10 @@ def rise_task():
                 return jsonify({"error": 1001, "msg": "请检查上传的图片类型，仅限于png、PNG、jpg、JPG、bmp"})
             aa=datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')  # 时间节点
             bb = f.filename.split('.')[-1]
-            task_imgurl = 'static/images/' + uid +aa + '.' + bb
+            task_imgurl = 'static/img/' + uid +aa + '.' + bb
             f.save(task_imgurl)
         except:
-            task_imgurl = 'static/images/0.jpg'
+            task_imgurl = 'static/img/0.jpg'
 
         # ------------（任务id，任务类型，任务标题，发布者id，任务详情，赏金，发布时间，接受截止时间，任务截止时间，任务地点）
         task = Tasks(task_id, tip, title, uid, content, salary, pmtime, smtime, sptime, position,task_imgurl)
@@ -194,7 +194,7 @@ class Tasks(db.Model):
     tip = db.Column(db.String(20), nullable=False)
     title = db.Column(db.String(20), nullable=False)
     uid= db.Column(db.String(40),nullable=False)      #定义字段
-    content= db.Column(db.String(200),nullable=False)
+    content= db.Column(db.String(400),nullable=False)
     salary=db.Column(db.String(5),nullable=False)
     pmtime= db.Column(db.String(20))
     smtime= db.Column(db.String(20),nullable=False)

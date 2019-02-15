@@ -21,25 +21,32 @@
                 <form class="form-signin" action="/register" method="post">
                 <h2 class="form-signin-heading">注册账号</h2>
                 <p>
-                    账号：<input type="text" name="uaccount" class="form-control" placeholder="请输入不超过20个由字母,数字,汉字组成的字符">
+                    <span>账号：<label style="color: red;">*</label><font id="textMSG"></font></span>
+                    <input type="text" name="uaccount" class="form-control" maxlength="20" required onblur="checkText(this.value)" placeholder="请输入4~20个由字母,数字,下划线组成的字符">
                 </p>
                 <p>
-                    密码：<input type="password" name="password1" placeholder="请输入6～10位密码" class="form-control">
+                    <span>密码：<label style="color: red;">*</label><font id="passwordMSG"></font></span>
+                    <input type="password" name="password1" id="password" maxlength="20" placeholder="请输入6~20位密码" required onblur="checkPwd(this.value)" class="form-control">
                 </p>
                 <p>
-                    确认密码：<input type="password" name="password2" placeholder="请再次输入密码" class="form-control">
+                    <span>确认密码：<label style="color: red;">*</label><font id="mm2MSG"></font></span>
+                    <input type="password" name="password2" maxlength="20" placeholder="请再次输入密码" required onblur="checkPwd2(this.value)" class="form-control">
                 </p>
                 <p>
-                    邮箱：<input type="email" name="uemail" class="form-control">
+                    <span>邮箱：<label style="color: red;">*</label><font id="emailMSG"></font></span>
+                    <input type="email" name="uemail" maxlength="40" required onblur="checkEmail(this.value)" class="form-control">
                 </p>
                 <p>
-                    电话：<input type="text" name="uphone" class="form-control">
+                    <span>电话：<label style="color: red;">*</label><font id="uphoneMSG"></font></span>
+                    <input type="text" name="uphone" maxlength="11" required onblur="checkUphone(this.value)" class="form-control">
                 </p>
                 <p>
-                    昵称：<input type="text" name="uname" class="form-control">
+                    <span>昵称：<label style="color: red;">*</label><font id="unameMSG"></font></span>
+                    <input type="text" name="uname" required maxlength="20" onblur="checkUname(this.value)" class="form-control">
                 </p>
                 <p>
-                    生日：<input type="text" name="uage" placeholder="请输入出生年月日" class="form-control">
+                    <span>生日：<font id="uageMSG"></font></span>
+                    <input type="text" name="uage" placeholder="请输入出生年月日" onblur="checkUage(this.value)" class="form-control">
                 </p>
                 <p>
                     <span>性别：</span>
@@ -74,5 +81,85 @@
             </div>
         </div>
       </div>
+      <script type="text/javascript">
+          /*验证账号*/
+          function checkText(text) {
+              var textMSG = document.getElementById("textMSG");
+              var reg = /[a-zA-Z0-9]{4,20}/;
+              var flag = reg.test(text);
+              if (!flag){
+                 textMSG.innerHTML = "<font color='red'>账号格式有误!</font>";
+             }else{
+                 textMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+          /*验证密码*/
+          function checkPwd(password) {
+             /*获取提示框*/
+             var passwordMSG = document.getElementById("passwordMSG");
+             /*定义正则表达式*/
+             var reg = /\w{6,20}/;
+             var flag = reg.test(password);
+             console.log(flag);
+             if (!flag){
+                 passwordMSG.innerHTML = "<font color='red'>密码格式有误!</font>";
+             }else{
+                 passwordMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+          /*验证确认密码*/
+          function checkPwd2(pwd2) {
+              var mm2MSG = document.getElementById("mm2MSG");//获取提示框
+              var pwd1 = document.getElementById("password").value;//获取第一个框的输入密码
+              //进行对比
+              if (pwd1 != pwd2){
+                  mm2MSG.innerHTML = "<font color='red'>两次输入的密码不一致!</font>";
+              }else{
+                  mm2MSG.innerHTML = "<font color='green'><b>√</b></font>";
+              }
+          }
+          /*验证邮箱*/
+          function checkEmail(email) {
+              var emailMSG = document.getElementById("emailMSG");
+              var reg = /\w+\W\w+\.com|\w+\W\w+\.cn/;
+              var flag = reg.test(email);
+              if (!flag){
+                 emailMSG.innerHTML = "<font color='red'>邮箱格式有误!</font>";
+             }else{
+                 emailMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+          /*验证电话*/
+          function checkUphone(uphone) {
+              var uphoneMSG = document.getElementById("uphoneMSG");
+              var reg = /[0-9]{11}/;
+              var flag = reg.test(uphone);
+              if (!flag){
+                 uphoneMSG.innerHTML = "<font color='red'>电话格式有误!</font>";
+             }else{
+                 uphoneMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+          /*验证昵称*/
+          function checkUname(uname) {
+              var unameMSG = document.getElementById("unameMSG");
+              if (!uname ){
+                 unameMSG.innerHTML = "<font color='red'>昵称格式有误!</font>";
+             }else{
+                 unameMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+          /*验证生日*/
+          function checkUage(uage) {
+              var uageMSG = document.getElementById("uageMSG");
+              var reg = /[0-9]{0,8}/;
+              var flag = reg.test(uage);
+              if (!flag){
+                 uageMSG.innerHTML = "<font color='red'>生日格式有误!</font>";
+             }else{
+                 uageMSG.innerHTML = "<font color='green'><b>√</b></font>";
+             }
+          }
+      </script>
   </body>
 </html>
