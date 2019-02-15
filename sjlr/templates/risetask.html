@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布任务</title>
+    <style>
+            .alert{
+                width: 500px;
+                height:100px;
+                background:red;
+                color:blue;
+                font-size: 24px;
+                border:aqua dotted 5px;
+            }
+            .alert:hover{
+                /* width: 510px;
+                height:110px; */
+                color: coral;
+                background:green;
+            }
+ 
+    </style>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <a class="alert"  href="{{url_for('hello_world')}}">{{ message }}</a>
+    {% endfor %}
+    <form method='POST'>
+        <input type="radio" name="tip" value="实物交易" checked>实物交易
+        <input type="radio" name="tip" value="跑腿代购">跑腿代购
+        <input type="radio" name="tip" value="虚拟任务">虚拟任务
+        <input type="radio" name="tip" value="其他类型">其他类型
+
+        <p>标题</p>
+        <input type='text' name='title'>
+        <p>任务详情</p>
+        <textarea name="text"></textarea>
+        <p>赏金</p>
+        <input type='text' name='salary'>
+
+        <p>id</p>
+        <input type='text' name='uid'>
+        <p>发布时间</p>
+        <input type='text' name='pmtime'>
+
+        <p>任务最迟开始时间</p>
+        <input type='text' name='smtime'>
+        <p>任务最迟结束时间</p>
+        <input type='text' name='sptime'>
+        <p>任务地点</p>
+        <input type='text' name='position'>
+        <br>
+        <input type="file" name="file" style="margin-top:20px;"/>
+        <br>
+        <input type='submit' value='提交'>
+    </form>
+    
+</body>
+</html>

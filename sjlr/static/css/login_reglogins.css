@@ -1,0 +1,134 @@
+a:hover{
+	text-decoration: none;
+}
+.con_border{
+    margin-top: 80px;
+    width: 450px;
+    height: 500px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color:#eee;
+    box-shadow: 6px 6px 4px rgba(0,0,0,0.4);
+}
+.form-signin {
+  max-width: 380px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .form-signin-heading{
+    margin-left: 105px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .checkbox label span{
+    display: inline-block;
+    line-height: 27px;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px;
+  font-size: 14px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin: 3px 0 10px 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin: 3px 0 10px 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-signin input[type="email"] {
+  margin: 3px 0 10px 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.mbl{
+    width: 380px;
+    height: 22px;
+    margin-top: 10px ;
+
+}
+/*注册*/
+.zhuce_border{
+    margin-top: 30px;
+    width: 450px;
+    height: 900px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color:#eee;
+    box-shadow: 6px 6px 4px rgba(0,0,0,0.4);
+}
+.file{
+    margin:15px 0 15px 0;
+}
+.file span{
+    line-height: 34px;
+}
+.file input{
+   float: right; width: 220px;
+}
+/*第三方登录*/
+.line{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    margin-top: 20px;
+}
+.other_oauth{
+    background: #eee;
+    color: #999;
+    position: absolute;
+    top: -15px;
+    left: 112px;
+    width: 192px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    z-index: 1;
+}
+.social-login {
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+    z-index: 1;
+}
+.social-qq{
+    display: block;
+    float: right;
+    background-image: url("/../../static/img/QQ_1.png");
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+.social-qq:hover,.social-qq:active {
+    background-image: url("/../../static/img/qq.png");
+}
+.social-weixin{
+    display: block;
+    float: right;
+    background-image: url("/../../static/img/weixin_1.png");
+    width: 32px;
+    height: 32px;
+    margin-right: 180px;
+}
+.social-weixin:hover,.social-weixin:active {
+    background-image: url("/../../static/img/weixin.png");
+}

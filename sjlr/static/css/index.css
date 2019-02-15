@@ -1,0 +1,247 @@
+a:hover{
+	text-decoration: none;
+}
+/*导航条*/
+.rw-btn{
+	margin: 6px 0px 0px 20px;
+	padding: 6px 30px;
+}
+.rw-btn-ss{
+	background-color: #347AB6;
+}
+.rw-btn-ss:hover{
+	background-color:#285F8F;
+}
+.rw-glyphicon{
+	margin-right: 7px;
+}
+/*通用样式*/
+.rw-xuanzhong:hover{
+	position: relative;
+	top: -5px;
+	transition: all 0.5s;
+}
+.rw-xuanzhong{
+    box-shadow: 6px 6px 4px rgba(0,0,0,0.4);
+}
+/*顶部广告栏*/
+.rw-container{
+	width: auto;
+	background-repeat: no-repeat!important;
+	background-size: cover!important;
+	box-sizing: border-box;
+}
+.rw-h1{
+	margin-top: 130px;
+	color: #fff;
+}
+.rw-thumbnail{
+	margin-top: 80px;
+	margin-bottom: 80px;
+	color: #fff;
+}
+.rw-brand{
+	margin-left: 48px;
+}
+.rw-brand{
+	padding: 0 15px;
+}
+
+/*热门业务*/
+.rmyw{
+	width: 343px;
+	height: 294px;
+	padding-top: 100px; 
+	margin-bottom: 20px;   		
+}
+.rmyw-top{    		
+	float: right;
+}
+.rw-hr{
+	border:1px solid #00B3FF;
+	margin-top: 5px;
+	margin-bottom: 20px;				
+}
+.container .gengduo{
+	float: right;
+}
+.rmyw_title{
+	height: 62px;
+	line-height: 62px;
+}
+.rmyw_title .hot_icon{
+	float: right;
+	font-size: 50px;
+	color: #000;
+}
+.rmyw_content{
+	font-size: 18px;
+	line-height: 42px;
+	height: 64px;
+
+}
+.rmyw_content span{
+	float: right;
+	color: #232323
+}
+.rmyw_content span:first-of-type{
+	margin-right: 56px;
+}
+.rmyw_content .line{
+	margin: 0 15px;
+	font-size: 18px;
+}
+.rmyw-but{
+	float: right;
+	margin-right: 48px;
+}
+/*创意设计*/
+.rw-left{
+	width: 343px;
+	height: 294px;
+	padding-top: 100px;
+	margin-bottom: 20px;
+}
+.rw-left_title{
+	height: 62px;
+	line-height: 62px;
+}
+.rw-left_title .hot_icon{
+	font-size: 50px;
+	color: #000;
+}
+.rw-left_content{
+	font-size: 18px;
+	line-height: 42px;
+	height: 64px;
+}
+.rw-left_content span{
+	color: #232323
+}
+.rw-left_content .line{
+	margin: 0 15px;
+	font-size: 18px;
+}
+.rw-left-but>button{
+	margin-left: 0px;
+}
+/*底部*/
+.footer-hr{
+	margin: 40px 0;
+}
+.footer{
+	margin-bottom: 50px;
+}
+.footer a{
+	color: #000000;
+}
+.footer a:hover{
+	color: #ffffff;
+}
+/*右侧悬浮导航栏*/
+.navright{
+	height: 112px;
+	width: 53px;
+	position: fixed;
+	top: 600px;
+	right: 40px;
+	z-index: 10000;
+}
+.navright .right_xf{
+	position: relative;
+	width: 53px;
+	height: 112px;
+	left: 0;
+	list-style-type: none;
+}
+.navright .right_xf .right_kefu,.right_top{
+	width: 53px;
+	height: 55px;
+}
+.navright .right_xf .right_kefu a{
+	
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff url(../img/onlinekefu.png) no-repeat;
+	background-position: center;
+	border-bottom: 1px solid #e8e8e8;
+	position: relative;
+	cursor: default;/*鼠标形状默认*/
+}
+.right_kefu .right_kefu_con{
+	visibility: hidden;
+	position: absolute;
+	top:-1px;
+	right: 14px;
+	border: 1px solid #e5e5e5;
+	background-color:#fff;
+	width: 150px;
+	height: 150px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+.right_kefu .right_kefu_con img{
+	margin:5px 25px;
+}
+.right_kefu .right_kefu_con p{
+	color: #504d4d;
+	text-align: center;
+	line-height: 32px;
+}
+.right_kefu:hover .right_kefu_con{
+
+	visibility: visible;
+}
+.navright .right_xf .right_top a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff url(../img/top.png) no-repeat;
+	background-position:center ;
+	cursor: pointer;
+}
+.navright .right_xf .right_top a:hover .top_share{
+	display: block;
+}
+.navright .right_xf .right_top a .top_share{
+	display: none;
+	background-color: #f7d034;
+	color: white;
+	text-align: center;
+	padding-top: 8px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}.right_kefu .right_kefu_con p{
+	color: #504d4d;
+	text-align: center;
+	line-height: 32px;
+}
+.right_kefu:hover .right_kefu_con{
+
+	visibility: visible;
+}
+.navright .right_xf .right_top a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff url(../img/top.png) no-repeat;
+	background-position:center ;
+	cursor: pointer;
+}
+.navright .right_xf .right_top a:hover .top_share{
+	display: block;
+
+}
+.navright .right_xf .right_top a .top_share{
+	text-decoration:none;
+	display: none;
+	background-color: #f7d034;
+	color: white;
+	text-align: center;
+	padding-top: 8px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>赏金猎人</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!--导航条-->
+<div id="topAnchor"></div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand rw-brand" href="#"><img alt="赏金" src="/static/img/logo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">首页 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#shiwu">实物交易</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#xuni">虚拟交易</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#paotui">跑腿</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#qita">其它</a></li>
+          </ul>
+        </li>
+        <li><a href="#">圈子</a></li>
+        <li><a href="#">赏金榜</a></li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="搜索任务" style="border-color: #347AB6;">
+        </div>
+        <button type="submit" class="btn btn-default btn-md rw-btn-ss">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="sr-only">搜索</span>
+        </button>
+      </form>
+    <!-- 发布任务的按钮 -->
+      <button type="button" class="btn btn-primary btn-lg rw-btn" data-toggle="modal" data-target="#myModal">
+          <span class="glyphicon glyphicon-send rw-glyphicon" aria-hidden="true"></span>发布任务
+      </button>
+        {% if params.account %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    欢迎：{{params.account}}
+                    <span class="glyphicon glyphicon-user rw-glyphicon" aria-hidden="true"></span>
+                    <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="">个人中心</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/logout">退出登录</a></li>
+                  </ul>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/login"><span class="glyphicon glyphicon-user rw-glyphicon" aria-hidden="true"></span>登录</a>
+                </li>
+                <li>
+                    <a href="/register">注册</a>
+                </li>
+            </ul>
+        {% endif %}
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--顶部的三列布局-->
+<div class="rw-container" style="background: url(../static/img/homepage-banner-may-18.jpg);">
+    <div class="container  " >
+        <div class="row">
+            <h1 class="rw-h1 text-center">赏金猎人任务平台</h1>
+            <div class="col-md-4 rw-thumbnail text-center">
+                  <img src="/static/img/shouye.png">
+                  <div class="caption">
+                    <h3>任务大厅</h3>
+                    <p>任务大厅：可以发布、接收、查看各种赏金任务.</p>
+                    <p><a href="#" class="btn btn-default" role="button">进入</a></p>
+                  </div>
+            </div>
+            <div class="col-md-4 rw-thumbnail text-center">
+                  <img src="/static/img/pengyouquan.png">
+                  <div class="caption">
+                    <h3>朋友圈</h3>
+                    <p>朋友圈：撩妹、撩汉、交友只在这里.</p>
+                    <p><a href="#" class="btn btn-default" role="button">进入</a></p>
+                  </div>
+            </div>
+            <div class="col-md-4 rw-thumbnail text-center">
+                  <img src="/static/img/shangjin.png">
+                  <div class="caption">
+                    <h3>赏金榜</h3>
+                    <p>赏金榜：是时候展现真正的大佬.</p>
+                    <p><a href="#" class="btn btn-default" role="button">进入</a></p>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--实物交易-->
+<div id="shiwu"></div>
+<div class="rw-container" style="background: url(../static/img/partoneBg.jpg);">
+    <div class="container" >
+        <div class="row">
+          <div class="rmyw-top rmyw">
+            <div class="rmyw_title">
+                <span class="hot_icon">实物交易<img src="/static/img/huore.png" ></span>
+            </div>
+            <div class="rmyw_content">
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+            </div>
+            <div class="rmyw-but">
+                <button type="button" class="btn btn-primary btn-lg rw-btn" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-send rw-glyphicon" aria-hidden="true"></span>发布任务
+                </button>
+            </div>
+          </div>
+          <div class="rmyw"></div>
+        <!--更多-->
+        <div class="container">
+            <a class="gengduo" href="#">更多>>></a>
+        </div>
+        <hr class="rw-hr" />
+    <!--任务详情-->
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+	
+<!--虚拟任务-->
+<div id="xuni"></div>
+<div class="rw-container" style="background: url(../static/img/partfourBg.jpg);">
+    <div class="container" >
+        <div class="row">
+          <div class="rw-left">
+            <div class="rw-left_title">
+                <span class="hot_icon">虚拟任务<img src="/static/img/chuangyi.png" ></span>
+            </div>
+            <div class="rw-left_content">
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+            </div>
+            <div class="rw-left-but">
+                <button type="button" class="btn btn-primary btn-lg rw-btn" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-send rw-glyphicon" aria-hidden="true"></span>发布任务
+                </button>
+            </div>
+          </div>
+        <!--更多-->
+        <div class="container">
+            <a class="gengduo" href="#">更多>>></a>
+        </div>
+        <hr class="rw-hr" />
+    <!--任务详情-->
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center ">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div><!-- /.container -->
+</div>
+
+<!--跑腿-->
+<div id="paotui"></div>
+<div class="rw-container" style="background: url(../static/img/partfourBg.jpg);">
+    <div class="container" >
+        <div class="row">
+          <div class="rw-left">
+            <div class="rw-left_title">
+                <span class="hot_icon">跑腿<img src="/static/img/chuangyi.png" ></span>
+            </div>
+            <div class="rw-left_content">
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+            </div>
+            <div class="rw-left-but">
+                <button type="button" class="btn btn-primary btn-lg rw-btn" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-send rw-glyphicon" aria-hidden="true"></span>发布任务
+                </button>
+            </div>
+          </div>
+        <!--更多-->
+        <div class="container">
+            <a class="gengduo" href="#">更多>>></a>
+        </div>
+        <hr class="rw-hr" />
+    <!--任务详情-->
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center ">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="/static/img/shangjin.png" alt="...">
+              <div class="caption">
+                <h3>任务具体内容</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">查看详情</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div><!-- /.container -->
+</div>
+
+<!--其它-->
+<div id="qita"></div>
+<div class="rw-container"style="background: url(../static/img/partthreeBg.jpg);">
+    <div class="container" >
+        <div class="row">
+            <div class="rmyw-top rmyw">
+            <div class="rmyw_title">
+                <span class="hot_icon">其它<img src="/static/img/huore.png" ></span>
+            </div>
+            <div class="rmyw_content">
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+                <span class='line'>|</span>
+                <span>赏金猎人</span>
+            </div>
+            <div class="rmyw-but">
+                <button type="button" class="btn btn-primary btn-lg rw-btn" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-send rw-glyphicon" aria-hidden="true"></span>发布任务
+                </button>
+            </div>
+          </div>
+          <div class="rmyw"></div>
+            <!--更多-->
+            <div class="container">
+                <a class="gengduo" href="#">更多>>></a>
+            </div>
+            <hr class="rw-hr" />
+        <!--任务详情-->
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="thumbnail rw-xuanzhong">
+              <img src="..." alt="...">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--底部-->
+        <hr class="featurette-divider footer-hr">
+        <footer class="footer">
+            <p class="pull-right"><a href="#">划船不用桨，一生全靠浪，思想有多远，我们就浪多远.</a></p>
+            <p>&copy; 2019 Company, NO.9小组. &middot; <a href="#">关于</a> &middot;
+            <a href="#">合作</a></p>
+        </footer>
+    </div>
+</div>
+
+<!-- 发布任务的模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">发布任务</h4>
+      </div>
+      <div class="modal-body">
+        <p>发布任务的具体内容</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">发布</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 右侧悬浮窗-->
+<div class="navright">
+        <ul class="right_xf">
+            <li class="right_kefu">
+                <a href=""></a>
+                <div class="right_kefu_con">
+                    <img src="/static/img/weixin_20190121211032.jpg" width="100px" height="100ox">
+                    <p>扫码有惊喜!</p>
+                </div>
+
+            </li>
+            <li class="right_top">
+                <a href="#topAnchor">
+                    <p class="top_share">
+                        返回
+                        <br>
+                        顶部
+                    </p>
+                </a>
+            </li>
+        </ul>
+</div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        //点击返回顶部按钮
+        $(".navright .right_top").click(function(){
+            $('html,body').animate({'scrollTop':0},500);
+        });
+    });
+</script>
+  </body>
+</html>
